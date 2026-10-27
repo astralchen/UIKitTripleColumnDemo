@@ -1,0 +1,94 @@
+{
+  "schema": "xcodebuildmcp.output.test-result",
+  "schemaVersion": "3",
+  "didError": true,
+  "error": "Tests failed",
+  "data": {
+    "summary": {
+      "status": "FAILED",
+      "durationMs": 193542,
+      "counts": {
+        "passed": 2,
+        "failed": 3,
+        "skipped": 0
+      },
+      "target": "simulator"
+    },
+    "artifacts": {
+      "buildLogPath": "~/Library/Developer/XcodeBuildMCP/workspaces/UIKitTripleColumnDemo-14cfb446d8c0/logs/test_sim_2026-10-27T06-56-44-669Z_pid68911_661eb6f3.log",
+      "xcresultPath": "~/Library/Developer/XcodeBuildMCP/workspaces/UIKitTripleColumnDemo-14cfb446d8c0/result-bundles/test_sim_2026-10-27T06-56-44-670Z_pid68911_c365272f.xcresult",
+      "testProductsPath": "~/Library/Developer/XcodeBuildMCP/workspaces/UIKitTripleColumnDemo-14cfb446d8c0/test-products/test_sim_2026-10-27T06-56-44-670Z_pid68911_b9955612.xctestproducts"
+    },
+    "tests": {
+      "discovered": {
+        "total": 5,
+        "items": [
+          "TripleColumnDemoUITests/TripleColumnDemoUITests/testInteractiveCancelAndFinish",
+          "TripleColumnDemoUITests/TripleColumnDemoUITests/testOverlapAfterCancelDecision",
+          "TripleColumnDemoUITests/TripleColumnDemoUITests/testOverlapAfterFinishDecision",
+          "TripleColumnDemoUITests/TripleColumnDemoUITests/testOverlapDuringActiveGesture",
+          "TripleColumnDemoUITests/TripleColumnDemoUITests/testSystemBackAndWidthRestore"
+        ]
+      }
+    },
+    "diagnostics": {
+      "warnings": [],
+      "errors": [],
+      "testFailures": [
+        {
+          "suite": "TripleColumnDemoUITests",
+          "test": "testInteractiveCancelAndFinish",
+          "message": "XCTAssertEqual failed: (\"XCTWaiterResult(rawValue: 2)\") is not equal to (\"XCTWaiterResult(rawValue: 1)\")",
+          "location": "/Users/sondra/Documents/GitHub/UIKitTripleColumnDemo/Examples/DefaultRouteHarness/TripleColumnDemoUITests/TripleColumnDemoUITests.swift:43"
+        },
+        {
+          "suite": "TripleColumnDemoUITests",
+          "test": "testInteractiveCancelAndFinish()",
+          "message": "XCTAssertEqual failed: (\"XCTWaiterResult(rawValue: 2)\") is not equal to (\"XCTWaiterResult(rawValue: 1)\")"
+        },
+        {
+          "suite": "TripleColumnDemoUITests",
+          "test": "testOverlapAfterCancelDecision",
+          "message": "com.example.uikit.DefaultRouteHarness crashed"
+        },
+        {
+          "suite": "TripleColumnDemoUITests",
+          "test": "testOverlapAfterFinishDecision",
+          "message": "com.example.uikit.DefaultRouteHarness crashed"
+        }
+      ]
+    },
+    "testCases": [
+      {
+        "suite": "TripleColumnDemoUITests",
+        "test": "testInteractiveCancelAndFinish",
+        "status": "failed",
+        "durationMs": 27820
+      },
+      {
+        "suite": "TripleColumnDemoUITests",
+        "test": "testOverlapAfterCancelDecision",
+        "status": "failed",
+        "durationMs": 26374
+      },
+      {
+        "suite": "TripleColumnDemoUITests",
+        "test": "testOverlapAfterFinishDecision",
+        "status": "failed",
+        "durationMs": 24211
+      },
+      {
+        "suite": "TripleColumnDemoUITests",
+        "test": "testOverlapDuringActiveGesture",
+        "status": "passed",
+        "durationMs": 37887
+      },
+      {
+        "suite": "TripleColumnDemoUITests",
+        "test": "testSystemBackAndWidthRestore",
+        "status": "passed",
+        "durationMs": 47669
+      }
+    ]
+  }
+}

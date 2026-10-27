@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UISplitViewController 四个核心概念</title>
+  <!-- 为原交互图补齐宿主主题，支持直接打开本地文件，无需联网。 -->
+  <style>
+    :root { color-scheme: light dark; --background:#fff; --foreground:#202124; --border:#d5d8de; --muted:#626873; --surface:#f3f4f6; --viz-series-1:#2b6cca; --viz-series-2:#d6a600; --viz-series-3:#d35c9d; }
+    @media (prefers-color-scheme: dark) {
+      :root { --background:#181818; --foreground:#f5f5f5; --border:#38383d; --muted:#b8b8bf; --surface:#242424; --viz-series-2:#f6d755; --viz-series-3:#ed8dbf; }
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; padding:clamp(16px,4vw,40px); background:var(--background); color:var(--foreground); font:16px/1.6 system-ui,-apple-system,"PingFang SC",sans-serif; }
+    main { max-width:1200px; margin:auto; }
+    h3 { margin:0 0 20px; font-size:24px; }
+    code { padding:2px 6px; border-radius:6px; background:var(--surface); font-family:ui-monospace,monospace; }
+    .viz-controls { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:24px; }
+    .form-label { display:grid; gap:6px; }
+    .form-select { width:100%; min-height:44px; padding:8px 12px; border:1px solid var(--border); border-radius:10px; background:var(--surface); color:var(--foreground); font:inherit; }
+    .form-select:focus-visible { outline:2px solid var(--viz-series-1); outline-offset:3px; }
+    .text-small { font-size:14px; }
+    .text-muted { color:var(--muted); }
+    @media (max-width:640px) { .viz-controls { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<main>
+<div id="split-view-concepts">
+  <style>
+    #split-view-concepts .structure { display:flex; flex-wrap:wrap; gap:10px 20px; align-items:center; margin:16px 0; }
+    #split-view-concepts .columns { display:flex; flex-wrap:wrap; gap:12px; }
+    #split-view-concepts .identity { display:inline-flex; gap:6px; align-items:center; }
+    #split-view-concepts .dot { width:10px; height:10px; border-radius:50%; display:inline-block; }
+    #split-view-concepts .form-label { min-width:0; }
+    #split-view-concepts select { max-width:100%; }
+    #split-view-concepts .drawing { width:100%; display:block; margin-top:16px; }
+    #split-view-concepts .output { display:grid; gap:6px; margin-top:12px; }
+    #split-view-concepts .output code { overflow-wrap:anywhere; white-space:normal; }
+    #split-view-concepts .caption { min-height:2em; margin-top:8px; }
+    #split-view-concepts .drawing text { fill:var(--foreground); }
+  </style>
+  <h3>同一个三栏容器，切换布局</h3>
+  <div class="structure">
+    <span>① <strong>Style</strong>：<code>.tripleColumn</code></span>
+    <span>② <strong>Column</strong>：</span>
+    <div class="columns" aria-label="三个固定的内容位置">
+      <span class="identity"><i class="dot" style="background:var(--viz-series-1)"></i><span><code>primary</code> 分类 · P</span></span>
+      <span class="identity"><i class="dot" style="background:var(--viz-series-2)"></i><span><code>supplementary</code> 列表 · S</span></span>
+      <span class="identity"><i class="dot" style="background:var(--viz-series-3)"></i><span><code>secondary</code> 详情 · D</span></span>
+    </div>
+  </div>
+  <div class="viz-controls">
+    <label class="form-label">③ SplitBehavior · 布局规则
+      <select class="form-select" id="split-behavior">
+        <option value="tile">tile · 并排分配空间</option>
+        <option value="overlay">overlay · 盖在详情上</option>
+        <option value="displace">displace · 把详情推开</option>
+      </select>
+    </label>
+    <label class="form-label">④ DisplayMode · 具体显示组合
+      <select class="form-select" id="split-mode">
+        <option value="0">secondaryOnly · 仅详情</option>
+        <option value="1">oneBesideSecondary · 列表 + 详情</option>
+        <option value="2" selected>twoBesideSecondary · 三栏并排</option>
+      </select>
+    </label>
+  </div>
+  <svg class="drawing" role="img" aria-label="三栏布局示意图"></svg>
+  <div class="output text-small">
+    <code id="split-code-behavior">preferredSplitBehavior = .tile</code>
+    <code id="split-code-mode">preferredDisplayMode = .twoBesideSecondary</code>
+  </div>
+  <div class="caption" id="split-detail" aria-live="polite">P + S + D 都可见，共三列。</div>
+  <div class="text-small text-muted">展开状态示意 · 已有三列内容 · 空间允许 · 不含 inspector · 图中宽度仅为示意</div>
+  <script>
+    (() => {
+      const root = document.getElementById('split-view-concepts');
+      const behavior = root.querySelector('#split-behavior');
+      const mode = root.querySelector('#split-mode');
+      const svg = root.querySelector('svg');
+      const caption = root.querySelector('#split-detail');
+      const choices = {
+        tile: ['secondaryOnly','oneBesideSecondary','twoBesideSecondary'],
+        overlay: ['secondaryOnly','oneOverSecondary','twoOverSecondary'],
+        displace: ['secondaryOnly','oneBesideSecondary','twoDisplaceSecondary']
+      };
+      const shortLabels = {
+        tile: ['仅详情','列表 + 详情','三栏并排'],
+        overlay: ['仅详情','列表覆盖详情','分类、列表覆盖详情'],
+        displace: ['仅详情','列表 + 详情','三栏相邻，详情被推走一部分']
+      };
+      let state = { behavior:'tile', count:2 };
+      const NS = 'http://www.w3.org/2000/svg';
+      function element(tag, attrs, text) {
+        const node = document.createElementNS(NS, tag);
+        Object.entries(attrs || {}).forEach(([k,v])=>node.setAttribute(k,v));
+        if (text !== undefined) node.textContent = text;
+        return node;
+      }
+      function restore(value) {
+        const candidate = value && value.privateContent;
+        if (candidate && choices[candidate.behavior] && [0,1,2].includes(candidate.count)) {
+          state = {behavior:candidate.behavior, count:candidate.count};
+        }
+      }
+      function draw() {
+        const width = Math.max(280, Math.round(root.getBoundingClientRect().width));
+        const small = width < 560;
+        const left = 2, screenWidth = width - 4, top = 28, height = 154;
+        const b = state.behavior, count = state.count;
+        const modeName = choices[b][count];
+        behavior.value = b;
+        mode.replaceChildren(...choices[b].map((name,index)=>{
+          const option=document.createElement('option');
+          option.value=index; option.textContent=name+' · '+shortLabels[b][index];
+          return option;
+        }));
+        mode.value=String(count);
+        root.querySelector('#split-code-behavior').textContent='preferredSplitBehavior = .'+b;
+        root.querySelector('#split-code-mode').textContent='preferredDisplayMode = .'+modeName;
+        svg.setAttribute('viewBox',`0 0 ${width} 218`);
+        svg.setAttribute('height','218');
+        svg.replaceChildren();
+        svg.appendChild(element('title',{},modeName));
+        svg.appendChild(element('desc',{},'结构保持 tripleColumn，三个列名保持不变。'+shortLabels[b][count]));
+        const defs=element('defs');
+        const clip=element('clipPath',{id:'split-screen-clip'});
+        clip.appendChild(element('rect',{x:left,y:top,width:screenWidth,height}));
+        defs.appendChild(clip); svg.appendChild(defs);
+        svg.appendChild(element('text',{x:left,y:17},'可视窗口'));
+        const group=element('g',{'clip-path':'url(#split-screen-clip)'});
+        svg.appendChild(group);
+        const colors={P:1,S:2,D:3};
+        const names={P:'primary',S:'supplementary',D:'secondary'};
+        const chinese={P:'分类',S:'文章列表',D:'文章详情'};
+        function pane(key,x,w,dimmed=false) {
+          const g=element('g');
+          g.appendChild(element('rect',{x:left+x*screenWidth,y:top,width:w*screenWidth,height,
+            fill:`color-mix(in srgb, var(--viz-series-${colors[key]}) 16%, var(--background))`}));
+          const center=left+(b==='overlay' && key==='D' ? .78 : x+w/2)*screenWidth;
+          const name=small?key:names[key];
+          g.appendChild(element('text',{x:center,y:top+45,'text-anchor':'middle','font-weight':'500'},name));
+          g.appendChild(element('text',{x:center,y:top+72,'text-anchor':'middle'},chinese[key]));
+          [96,110,124].forEach((dy,i)=>g.appendChild(element('line',{
+            x1:left+(x+w*.15)*screenWidth,x2:left+(x+w*(i===2?.6:.85))*screenWidth,
+            y1:top+dy,y2:top+dy,stroke:'var(--border)','stroke-width':'2'
+          })));
+          if(dimmed) g.appendChild(element('rect',{x:left+x*screenWidth,y:top,width:w*screenWidth,height,fill:'var(--foreground)',opacity:'.12'}));
+          group.appendChild(g);
+        }
+        let detail='';
+        if(count===0) {
+          pane('D',0,1);
+          detail='只显示 D；P、S 仍有内容配置，但当前隐藏。Style 仍是三栏。';
+        } else if(b==='tile' || (b==='displace' && count===1)) {
+          if(count===2) { pane('P',0,.24); pane('S',.24,.30); pane('D',.54,.46); }
+          else { pane('S',0,.30); pane('D',.30,.70); }
+          detail=count===2?'P + S + D 都可见，共三列。':'S + D 并排；三栏结构中的 one 指 S，不是 P。';
+        } else if(b==='overlay') {
+          pane('D',0,1,true);
+          if(count===2) { pane('P',0,.24); pane('S',.24,.30); }
+          else pane('S',0,.30);
+          // 详情标签放在仍可见的区域，避免被前景侧栏的标记遮住。
+          group.appendChild(element('text',{x:left+screenWidth*.78,y:top+140,'text-anchor':'middle'},small?'D 被遮住':'详情部分被覆盖'));
+          detail=count===2?'P、S 并排盖在 D 上；D 留在原位，部分可见但不可操作。':'S 盖在 D 上；P 隐藏，D 留在原位。';
+        } else {
+          pane('P',0,.24); pane('S',.24,.30); pane('D',.54,.70,true);
+          svg.appendChild(element('text',{x:width-3,y:205,'text-anchor':'end'},'→ 详情的一部分移到窗口外'));
+          detail='P 加入后把 S、D 向另一侧推移；D 被裁切，并不可操作。';
+        }
+        svg.appendChild(element('rect',{x:left,y:top,width:screenWidth,height,fill:'none',stroke:'var(--border)','stroke-width':'1'}));
+        caption.textContent=detail;
+        svg.setAttribute('aria-label',modeName+'。'+detail);
+      }
+      function persist() {
+        if(window.openai && window.openai.setWidgetState) {
+          window.openai.setWidgetState({modelContent:{style:'tripleColumn',splitBehavior:state.behavior,displayMode:choices[state.behavior][state.count]},privateContent:state}).catch(()=>{});
+        }
+      }
+      behavior.addEventListener('change',()=>{state.behavior=behavior.value;draw();persist();});
+      mode.addEventListener('change',()=>{state.count=Number(mode.value);draw();persist();});
+      restore(window.openai && window.openai.widgetState);
+      window.addEventListener('openai:set_globals',event=>{
+        if(event.detail && event.detail.globals && event.detail.globals.widgetState){restore(event.detail.globals.widgetState);draw();}
+      });
+      new ResizeObserver(draw).observe(root);
+      draw();
+    })();
+  </script>
+</div>
+
+</main>
+</body>
+</html>

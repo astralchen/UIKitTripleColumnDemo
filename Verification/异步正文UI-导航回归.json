@@ -1,0 +1,79 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "\n🧪 Test\n\nDiscovered 4 test(s):\n   TripleColumnDemoUITests/TripleColumnDemoUITests/testCategorySwitchThenCancelledReturnAndExpand\n   TripleColumnDemoUITests/TripleColumnDemoUITests/testDeletionThenCancelledReturnFallsBackToList\n   TripleColumnDemoUITests/TripleColumnDemoUITests/testInteractiveCancelAndFinish\n   TripleColumnDemoUITests/TripleColumnDemoUITests/testSystemBackAndWidthRestore\n\n✅ 4 tests passed, 0 failed, 0 skipped (⏱️ 175.2s)\n  └ Files:\n     └── ~/Library/Developer/XcodeBuildMCP/workspaces/UIKitTripleColumnDemo-14cfb446d8c0/\n         ├── logs/test_sim_2026-10-27T07-42-36-302Z_pid68911_b1571bf5.log — Build Logs\n         ├── result-bundles/test_sim_2026-10-27T07-42-36-302Z_pid68911_3e01899f.xcresult — Result Bundle\n         └── test-products/test_sim_2026-10-27T07-42-36-302Z_pid68911_5f142016.xctestproducts — Test Products\n"
+    }
+  ],
+  "structuredContent": {
+    "schema": "xcodebuildmcp.output.test-result",
+    "schemaVersion": "3",
+    "didError": false,
+    "error": null,
+    "data": {
+      "summary": {
+        "status": "SUCCEEDED",
+        "durationMs": 175152,
+        "counts": {
+          "passed": 4,
+          "failed": 0,
+          "skipped": 0
+        },
+        "target": "simulator"
+      },
+      "artifacts": {
+        "buildLogPath": "~/Library/Developer/XcodeBuildMCP/workspaces/UIKitTripleColumnDemo-14cfb446d8c0/logs/test_sim_2026-10-27T07-42-36-302Z_pid68911_b1571bf5.log",
+        "xcresultPath": "~/Library/Developer/XcodeBuildMCP/workspaces/UIKitTripleColumnDemo-14cfb446d8c0/result-bundles/test_sim_2026-10-27T07-42-36-302Z_pid68911_3e01899f.xcresult",
+        "testProductsPath": "~/Library/Developer/XcodeBuildMCP/workspaces/UIKitTripleColumnDemo-14cfb446d8c0/test-products/test_sim_2026-10-27T07-42-36-302Z_pid68911_5f142016.xctestproducts"
+      },
+      "tests": {
+        "selected": [
+          "TripleColumnDemoUITests/TripleColumnDemoUITests/testCategorySwitchThenCancelledReturnAndExpand",
+          "TripleColumnDemoUITests/TripleColumnDemoUITests/testDeletionThenCancelledReturnFallsBackToList",
+          "TripleColumnDemoUITests/TripleColumnDemoUITests/testInteractiveCancelAndFinish",
+          "TripleColumnDemoUITests/TripleColumnDemoUITests/testSystemBackAndWidthRestore"
+        ],
+        "discovered": {
+          "total": 4,
+          "items": [
+            "TripleColumnDemoUITests/TripleColumnDemoUITests/testCategorySwitchThenCancelledReturnAndExpand",
+            "TripleColumnDemoUITests/TripleColumnDemoUITests/testDeletionThenCancelledReturnFallsBackToList",
+            "TripleColumnDemoUITests/TripleColumnDemoUITests/testInteractiveCancelAndFinish",
+            "TripleColumnDemoUITests/TripleColumnDemoUITests/testSystemBackAndWidthRestore"
+          ]
+        }
+      },
+      "diagnostics": {
+        "warnings": [],
+        "errors": [],
+        "testFailures": []
+      },
+      "testCases": [
+        {
+          "suite": "TripleColumnDemoUITests",
+          "test": "testCategorySwitchThenCancelledReturnAndExpand",
+          "status": "passed",
+          "durationMs": 42009
+        },
+        {
+          "suite": "TripleColumnDemoUITests",
+          "test": "testDeletionThenCancelledReturnFallsBackToList",
+          "status": "passed",
+          "durationMs": 34130
+        },
+        {
+          "suite": "TripleColumnDemoUITests",
+          "test": "testInteractiveCancelAndFinish",
+          "status": "passed",
+          "durationMs": 28908
+        },
+        {
+          "suite": "TripleColumnDemoUITests",
+          "test": "testSystemBackAndWidthRestore",
+          "status": "passed",
+          "durationMs": 51065
+        }
+      ]
+    }
+  }
+}

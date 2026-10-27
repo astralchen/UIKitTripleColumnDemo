@@ -1,0 +1,70 @@
+warning: /Users/sondra/Library/org.swift.swiftpm/configuration is not accessible or not writable, disabling user-level cache features.
+warning: /Users/sondra/Library/org.swift.swiftpm/security is not accessible or not writable, disabling user-level cache features.
+warning: /Users/sondra/Library/Caches/org.swift.swiftpm is not accessible or not writable, disabling user-level cache features.
+warning: 'uikittriplecolumndemo': failed storing manifest for 'uikittriplecolumndemo' in cache: attempt to write a readonly database
+Building for debugging...
+[Pre-planning 1 / 95]
+[Planning deferred tasks]
+[28 / 52]
+[29 / 53] RouteModel
+[33 / 57] RouteModel
+[41 / 57] RouteModel
+[47 / 58] RouteModelTests-product
+[55 / 128]
+[58 / 128]
+[62 / 128]
+[66 / 128]
+[67 / 128]
+[69 / 128]
+[73 / 128]
+[75 / 128]
+[78 / 128]
+[79 / 128]
+[82 / 128]
+[86 / 128]
+[89 / 128]
+[91 / 128]
+[92 / 128]
+[100 / 128]
+[103 / 128]
+[104 / 128]
+[107 / 128]
+[109 / 128]
+[111 / 128]
+[112 / 128]
+[113 / 128]
+[114 / 128]
+[117 / 128] RouteModelTests-product
+[122 / 128] RouteModelTests-product
+[124 / 128] RouteModelTests-product
+[126 / 128] RouteModelTests-product
+Build complete! (17.89秒)
+Test Suite 'All tests' started at 2026-10-27 14:57:04.268.
+Test Suite 'RouteModelTests.xctest' started at 2026-10-27 14:57:04.270.
+Test Suite 'RouteLedgerTests' started at 2026-10-27 14:57:04.270.
+Test Case '-[RouteModelTests.RouteLedgerTests testAppearanceCannotOverwritePendingOrNewLayout]' started.
+Test Case '-[RouteModelTests.RouteLedgerTests testAppearanceCannotOverwritePendingOrNewLayout]' passed (0.003 seconds).
+Test Case '-[RouteModelTests.RouteLedgerTests testCancelAfterExpansionKeepsSource]' started.
+Test Case '-[RouteModelTests.RouteLedgerTests testCancelAfterExpansionKeepsSource]' passed (0.000 seconds).
+Test Case '-[RouteModelTests.RouteLedgerTests testCompleteAfterExpansionUsesTarget]' started.
+Test Case '-[RouteModelTests.RouteLedgerTests testCompleteAfterExpansionUsesTarget]' passed (0.000 seconds).
+Test Case '-[RouteModelTests.RouteLedgerTests testExpandThenCollapseBeforeResult]' started.
+Test Case '-[RouteModelTests.RouteLedgerTests testExpandThenCollapseBeforeResult]' passed (0.000 seconds).
+Test Case '-[RouteModelTests.RouteLedgerTests testNestedSizeAndColumnTransitions]' started.
+Test Case '-[RouteModelTests.RouteLedgerTests testNestedSizeAndColumnTransitions]' passed (0.000 seconds).
+Test Case '-[RouteModelTests.RouteLedgerTests testOldCompletionCannotOverwriteNewNavigation]' started.
+Test Case '-[RouteModelTests.RouteLedgerTests testOldCompletionCannotOverwriteNewNavigation]' passed (0.000 seconds).
+Test Case '-[RouteModelTests.RouteLedgerTests testResultBeforeLayoutEndWaitsForBoth]' started.
+Test Case '-[RouteModelTests.RouteLedgerTests testResultBeforeLayoutEndWaitsForBoth]' passed (0.000 seconds).
+Test Case '-[RouteModelTests.RouteLedgerTests testStableNavigationAndWideChoice]' started.
+Test Case '-[RouteModelTests.RouteLedgerTests testStableNavigationAndWideChoice]' passed (0.000 seconds).
+Test Suite 'RouteLedgerTests' passed at 2026-10-27 14:57:04.275.
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.004 (0.005) seconds
+Test Suite 'RouteModelTests.xctest' passed at 2026-10-27 14:57:04.275.
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.004 (0.005) seconds
+Test Suite 'All tests' passed at 2026-10-27 14:57:04.275.
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.004 (0.007) seconds
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􁁛  Test run with 0 tests in 0 suites passed after 0.001 seconds.

@@ -1,0 +1,84 @@
+warning: /Users/sondra/Library/org.swift.swiftpm/configuration is not accessible or not writable, disabling user-level cache features.
+warning: /Users/sondra/Library/org.swift.swiftpm/security is not accessible or not writable, disabling user-level cache features.
+warning: /Users/sondra/Library/Caches/org.swift.swiftpm is not accessible or not writable, disabling user-level cache features.
+warning: 'uikittriplecolumndemo': failed storing manifest for 'uikittriplecolumndemo' in cache: attempt to write a readonly database
+Building for debugging...
+[Planning 1 / 95]
+[Planning deferred tasks]
+[8 / 29] RouteModel
+[11 / 32] RouteModel
+[15 / 28] RouteModel
+[19 / 28] RouteModelTests-product
+[23 / 32] RouteModelTests-product
+[27 / 31] RouteModelTests-product
+[29 / 31] RouteModelTests-product
+Build complete! (2.93秒)
+Test Suite 'All tests' started at 2026-10-27 15:39:06.219.
+Test Suite 'RouteModelTests.xctest' started at 2026-10-27 15:39:06.221.
+Test Suite 'ArticleBodyTests' started at 2026-10-27 15:39:06.221.
+Test Case '-[RouteModelTests.ArticleBodyTests testAToBToADoesNotReviveFirstA]' started.
+Test Case '-[RouteModelTests.ArticleBodyTests testAToBToADoesNotReviveFirstA]' passed (0.003 seconds).
+Test Case '-[RouteModelTests.ArticleBodyTests testBackAndLayoutKeepRequestButDoNotRestoreDetail]' started.
+Test Case '-[RouteModelTests.ArticleBodyTests testBackAndLayoutKeepRequestButDoNotRestoreDetail]' passed (0.000 seconds).
+Test Case '-[RouteModelTests.ArticleBodyTests testBFinishesBeforeA]' started.
+Test Case '-[RouteModelTests.ArticleBodyTests testBFinishesBeforeA]' passed (0.000 seconds).
+Test Case '-[RouteModelTests.ArticleBodyTests testCategorySwitchAndReusedArticleID]' started.
+Test Case '-[RouteModelTests.ArticleBodyTests testCategorySwitchAndReusedArticleID]' passed (0.000 seconds).
+Test Case '-[RouteModelTests.ArticleBodyTests testCurrentFailureCanRetryAndCurrentCancellationEndsLoading]' started.
+Test Case '-[RouteModelTests.ArticleBodyTests testCurrentFailureCanRetryAndCurrentCancellationEndsLoading]' passed (0.003 seconds).
+Test Case '-[RouteModelTests.ArticleBodyTests testDeletionDuringGestureAndLayoutWinsForBothOutcomes]' started.
+Test Case '-[RouteModelTests.ArticleBodyTests testDeletionDuringGestureAndLayoutWinsForBothOutcomes]' passed (0.000 seconds).
+Test Case '-[RouteModelTests.ArticleBodyTests testOldFailureAndCancellationCannotClearNewLoading]' started.
+Test Case '-[RouteModelTests.ArticleBodyTests testOldFailureAndCancellationCannotClearNewLoading]' passed (0.001 seconds).
+Test Case '-[RouteModelTests.ArticleBodyTests testSameArticleReloadUsesNewRequestIDWithoutVersionChange]' started.
+Test Case '-[RouteModelTests.ArticleBodyTests testSameArticleReloadUsesNewRequestIDWithoutVersionChange]' passed (0.000 seconds).
+Test Suite 'ArticleBodyTests' passed at 2026-10-27 15:39:06.230.
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.008 (0.009) seconds
+Test Suite 'ContentInvalidationTests' started at 2026-10-27 15:39:06.230.
+Test Case '-[RouteModelTests.ContentInvalidationTests testCategorySwitchSupersedesOldReturnToCategories]' started.
+Test Case '-[RouteModelTests.ContentInvalidationTests testCategorySwitchSupersedesOldReturnToCategories]' passed (0.000 seconds).
+Test Case '-[RouteModelTests.ContentInvalidationTests testDeleteAndLayoutInBothCompletionOrders]' started.
+Test Case '-[RouteModelTests.ContentInvalidationTests testDeleteAndLayoutInBothCompletionOrders]' passed (0.000 seconds).
+Test Case '-[RouteModelTests.ContentInvalidationTests testDeletedArticleWinsOverBothGestureOutcomes]' started.
+Test Case '-[RouteModelTests.ContentInvalidationTests testDeletedArticleWinsOverBothGestureOutcomes]' passed (0.000 seconds).
+Test Case '-[RouteModelTests.ContentInvalidationTests testDeletedCategoryFallsBackToCategories]' started.
+Test Case '-[RouteModelTests.ContentInvalidationTests testDeletedCategoryFallsBackToCategories]' passed (0.000 seconds).
+Test Case '-[RouteModelTests.ContentInvalidationTests testInitialSnapshotMembershipAndNoForcedNavigationFromCategories]' started.
+Test Case '-[RouteModelTests.ContentInvalidationTests testInitialSnapshotMembershipAndNoForcedNavigationFromCategories]' passed (0.000 seconds).
+Test Case '-[RouteModelTests.ContentInvalidationTests testRecreatedIDDoesNotRestoreDeletedSelection]' started.
+Test Case '-[RouteModelTests.ContentInvalidationTests testRecreatedIDDoesNotRestoreDeletedSelection]' passed (0.000 seconds).
+Test Case '-[RouteModelTests.ContentInvalidationTests testSecondInvalidationDuringRestorationWins]' started.
+Test Case '-[RouteModelTests.ContentInvalidationTests testSecondInvalidationDuringRestorationWins]' passed (0.000 seconds).
+Test Case '-[RouteModelTests.ContentInvalidationTests testStaleAppearanceRejectedEvenAfterRecovery]' started.
+Test Case '-[RouteModelTests.ContentInvalidationTests testStaleAppearanceRejectedEvenAfterRecovery]' passed (0.000 seconds).
+Test Case '-[RouteModelTests.ContentInvalidationTests testUnrelatedDeletionDoesNotInvalidateNavigation]' started.
+Test Case '-[RouteModelTests.ContentInvalidationTests testUnrelatedDeletionDoesNotInvalidateNavigation]' passed (0.000 seconds).
+Test Suite 'ContentInvalidationTests' passed at 2026-10-27 15:39:06.232.
+	 Executed 9 tests, with 0 failures (0 unexpected) in 0.001 (0.002) seconds
+Test Suite 'RouteLedgerTests' started at 2026-10-27 15:39:06.232.
+Test Case '-[RouteModelTests.RouteLedgerTests testAppearanceCannotOverwritePendingOrNewLayout]' started.
+Test Case '-[RouteModelTests.RouteLedgerTests testAppearanceCannotOverwritePendingOrNewLayout]' passed (0.000 seconds).
+Test Case '-[RouteModelTests.RouteLedgerTests testCancelAfterExpansionKeepsSource]' started.
+Test Case '-[RouteModelTests.RouteLedgerTests testCancelAfterExpansionKeepsSource]' passed (0.000 seconds).
+Test Case '-[RouteModelTests.RouteLedgerTests testCompleteAfterExpansionUsesTarget]' started.
+Test Case '-[RouteModelTests.RouteLedgerTests testCompleteAfterExpansionUsesTarget]' passed (0.000 seconds).
+Test Case '-[RouteModelTests.RouteLedgerTests testExpandThenCollapseBeforeResult]' started.
+Test Case '-[RouteModelTests.RouteLedgerTests testExpandThenCollapseBeforeResult]' passed (0.000 seconds).
+Test Case '-[RouteModelTests.RouteLedgerTests testNestedSizeAndColumnTransitions]' started.
+Test Case '-[RouteModelTests.RouteLedgerTests testNestedSizeAndColumnTransitions]' passed (0.000 seconds).
+Test Case '-[RouteModelTests.RouteLedgerTests testOldCompletionCannotOverwriteNewNavigation]' started.
+Test Case '-[RouteModelTests.RouteLedgerTests testOldCompletionCannotOverwriteNewNavigation]' passed (0.000 seconds).
+Test Case '-[RouteModelTests.RouteLedgerTests testResultBeforeLayoutEndWaitsForBoth]' started.
+Test Case '-[RouteModelTests.RouteLedgerTests testResultBeforeLayoutEndWaitsForBoth]' passed (0.000 seconds).
+Test Case '-[RouteModelTests.RouteLedgerTests testStableNavigationAndWideChoice]' started.
+Test Case '-[RouteModelTests.RouteLedgerTests testStableNavigationAndWideChoice]' passed (0.000 seconds).
+Test Suite 'RouteLedgerTests' passed at 2026-10-27 15:39:06.233.
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'RouteModelTests.xctest' passed at 2026-10-27 15:39:06.233.
+	 Executed 25 tests, with 0 failures (0 unexpected) in 0.010 (0.012) seconds
+Test Suite 'All tests' passed at 2026-10-27 15:39:06.233.
+	 Executed 25 tests, with 0 failures (0 unexpected) in 0.010 (0.014) seconds
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􁁛  Test run with 0 tests in 0 suites passed after 0.001 seconds.

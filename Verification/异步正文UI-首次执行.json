@@ -1,0 +1,88 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "\n🧪 Test\n\nDiscovered 4 test(s):\n   TripleColumnDemoUITests/TripleColumnDemoUITests/testBodyCategorySwitchRejectsLateResponse\n   TripleColumnDemoUITests/TripleColumnDemoUITests/testBodyDeletionRejectsLateResponse\n   TripleColumnDemoUITests/TripleColumnDemoUITests/testBodyRapidSwitchRejectsLateA\n   TripleColumnDemoUITests/TripleColumnDemoUITests/testBodyReloadRejectsSameArticleOldRequest\n\nWarnings (2):\n\n  ⚠ converting non-Sendable function value to '@MainActor @Sendable @convention(block) () -> Void' may introduce data races\n    /Users/sondra/Documents/GitHub/UIKitTripleColumnDemo/Examples/DefaultRouteHarness/TripleColumnDemoPackage/Sources/TripleColumnDemoFeature/DefaultRouteHost.swift:95\n\n  ⚠ converting non-Sendable function value to '@MainActor @Sendable @convention(block) () -> Void' may introduce data races\n    /Users/sondra/Documents/GitHub/UIKitTripleColumnDemo/Examples/DefaultRouteHarness/TripleColumnDemoPackage/Sources/TripleColumnDemoFeature/DefaultRouteHost.swift:99\n\n✅ 4 tests passed, 0 failed, 0 skipped (⏱️ 107.9s)\n  └ Files:\n     └── ~/Library/Developer/XcodeBuildMCP/workspaces/UIKitTripleColumnDemo-14cfb446d8c0/\n         ├── logs/test_sim_2026-10-27T07-40-18-862Z_pid68911_ede070fc.log — Build Logs\n         ├── result-bundles/test_sim_2026-10-27T07-40-18-863Z_pid68911_fc07b777.xcresult — Result Bundle\n         └── test-products/test_sim_2026-10-27T07-40-18-863Z_pid68911_20d29ef1.xctestproducts — Test Products\n"
+    }
+  ],
+  "structuredContent": {
+    "schema": "xcodebuildmcp.output.test-result",
+    "schemaVersion": "3",
+    "didError": false,
+    "error": null,
+    "data": {
+      "summary": {
+        "status": "SUCCEEDED",
+        "durationMs": 107921,
+        "counts": {
+          "passed": 4,
+          "failed": 0,
+          "skipped": 0
+        },
+        "target": "simulator"
+      },
+      "artifacts": {
+        "buildLogPath": "~/Library/Developer/XcodeBuildMCP/workspaces/UIKitTripleColumnDemo-14cfb446d8c0/logs/test_sim_2026-10-27T07-40-18-862Z_pid68911_ede070fc.log",
+        "xcresultPath": "~/Library/Developer/XcodeBuildMCP/workspaces/UIKitTripleColumnDemo-14cfb446d8c0/result-bundles/test_sim_2026-10-27T07-40-18-863Z_pid68911_fc07b777.xcresult",
+        "testProductsPath": "~/Library/Developer/XcodeBuildMCP/workspaces/UIKitTripleColumnDemo-14cfb446d8c0/test-products/test_sim_2026-10-27T07-40-18-863Z_pid68911_20d29ef1.xctestproducts"
+      },
+      "tests": {
+        "selected": [
+          "TripleColumnDemoUITests/TripleColumnDemoUITests/testBodyCategorySwitchRejectsLateResponse",
+          "TripleColumnDemoUITests/TripleColumnDemoUITests/testBodyDeletionRejectsLateResponse",
+          "TripleColumnDemoUITests/TripleColumnDemoUITests/testBodyRapidSwitchRejectsLateA",
+          "TripleColumnDemoUITests/TripleColumnDemoUITests/testBodyReloadRejectsSameArticleOldRequest"
+        ],
+        "discovered": {
+          "total": 4,
+          "items": [
+            "TripleColumnDemoUITests/TripleColumnDemoUITests/testBodyCategorySwitchRejectsLateResponse",
+            "TripleColumnDemoUITests/TripleColumnDemoUITests/testBodyDeletionRejectsLateResponse",
+            "TripleColumnDemoUITests/TripleColumnDemoUITests/testBodyRapidSwitchRejectsLateA",
+            "TripleColumnDemoUITests/TripleColumnDemoUITests/testBodyReloadRejectsSameArticleOldRequest"
+          ]
+        }
+      },
+      "diagnostics": {
+        "warnings": [
+          {
+            "message": "converting non-Sendable function value to '@MainActor @Sendable @convention(block) () -> Void' may introduce data races",
+            "location": "/Users/sondra/Documents/GitHub/UIKitTripleColumnDemo/Examples/DefaultRouteHarness/TripleColumnDemoPackage/Sources/TripleColumnDemoFeature/DefaultRouteHost.swift:95"
+          },
+          {
+            "message": "converting non-Sendable function value to '@MainActor @Sendable @convention(block) () -> Void' may introduce data races",
+            "location": "/Users/sondra/Documents/GitHub/UIKitTripleColumnDemo/Examples/DefaultRouteHarness/TripleColumnDemoPackage/Sources/TripleColumnDemoFeature/DefaultRouteHost.swift:99"
+          }
+        ],
+        "errors": [],
+        "testFailures": []
+      },
+      "testCases": [
+        {
+          "suite": "TripleColumnDemoUITests",
+          "test": "testBodyCategorySwitchRejectsLateResponse",
+          "status": "passed",
+          "durationMs": 26742
+        },
+        {
+          "suite": "TripleColumnDemoUITests",
+          "test": "testBodyDeletionRejectsLateResponse",
+          "status": "passed",
+          "durationMs": 22965
+        },
+        {
+          "suite": "TripleColumnDemoUITests",
+          "test": "testBodyRapidSwitchRejectsLateA",
+          "status": "passed",
+          "durationMs": 22341
+        },
+        {
+          "suite": "TripleColumnDemoUITests",
+          "test": "testBodyReloadRejectsSameArticleOldRequest",
+          "status": "passed",
+          "durationMs": 20371
+        }
+      ]
+    }
+  }
+}
